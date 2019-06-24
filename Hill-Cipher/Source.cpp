@@ -93,30 +93,7 @@ void citireVector(int vector[N][N], int n) {
 	cout << endl << endl;
 }
 
-void afisareMatriceVector(int matrice_initiala[N][N], int vector[N][N], int n) {
-	//aceasta functie e doar pentru reafisarea matriciilor
 
-	cout << "Matricea initiala: " << endl;
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			cout << matrice_initiala[i][j] << " ";
-
-		}
-		cout << endl;
-	}
-
-	cout << endl << endl;
-	cout << "Vectorul: " << endl;
-
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < 1; j++) {
-			cout << vector[i][j] << " ";
-
-		}
-		cout << endl;
-	}
-	cout << endl << endl;
-}
 
 //------------------------------------------CRIPTARE--------------------------------------------------
 void initializareVectorParcurs(int matrice_initiala[N][N], int vector[N][N], int vector_parcurs[N][N], int matrice_parcursa[N][N], int n, string mesaj) {
