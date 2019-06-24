@@ -50,18 +50,18 @@ void citire(string &mesaj) {
 		mesaj[i] = toupper(mesaj[i]);
 
 	}
-	
+
 }
 
 void conditieMesaj(string mesaj, int n) {
 	//asta seteaza ca mesajul sa nu fie mai lung decat lungimea alocata pentru matrice
 	//si ca lungimea mesajului sa nu fie numar impar
 
-	do{  
+	do {
 		cout << "Reintroduceti mesajul: ";
 		getline(cin, mesaj);
 
-	}while(mesaj.length() > N * n);
+	} while (mesaj.length() > N * n);
 }
 
 void citireMatrice(int matrice_initiala[N][N], int n) {
@@ -93,7 +93,30 @@ void citireVector(int vector[N][N], int n) {
 	cout << endl << endl;
 }
 
+void afisareMatriceVector(int matrice_initiala[N][N], int vector[N][N], int n) {
+	//aceasta functie e doar pentru reafisarea matriciilor
 
+	cout << "Matricea initiala: " << endl;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << matrice_initiala[i][j] << " ";
+
+		}
+		cout << endl;
+	}
+
+	cout << endl << endl;
+	cout << "Vectorul: " << endl;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < 1; j++) {
+			cout << vector[i][j] << " ";
+
+		}
+		cout << endl;
+	}
+	cout << endl << endl;
+}
 
 //------------------------------------------CRIPTARE--------------------------------------------------
 void initializareVectorParcurs(int matrice_initiala[N][N], int vector[N][N], int vector_parcurs[N][N], int matrice_parcursa[N][N], int n, string mesaj) {
@@ -225,28 +248,28 @@ void adjuncta(int matrice_transpusa[N][N], int matrice_initiala[N][N], int matri
 		}
 	}
 	else if (n == 3) {
-	
+
 		//poorly coded
 
 		matrice_adjuncta[0][0] = matrice_transpusa[1][1] * matrice_transpusa[2][2] - matrice_transpusa[1][2] * matrice_transpusa[2][1];
-		
+
 		matrice_adjuncta[0][1] = -(matrice_transpusa[1][0] * matrice_transpusa[2][2] - matrice_transpusa[2][0] * matrice_transpusa[1][2]);
-		
+
 		matrice_adjuncta[0][2] = matrice_transpusa[1][0] * matrice_transpusa[2][1] - matrice_transpusa[2][0] * matrice_transpusa[1][1];
-		
+
 		matrice_adjuncta[1][0] = -(matrice_transpusa[0][1] * matrice_transpusa[2][2] - matrice_transpusa[2][1] * matrice_transpusa[0][2]);
-		
+
 		matrice_adjuncta[1][1] = matrice_transpusa[0][0] * matrice_transpusa[2][2] - matrice_transpusa[2][0] * matrice_transpusa[0][2];
-		
+
 		matrice_adjuncta[1][2] = -(matrice_transpusa[0][0] * matrice_transpusa[2][1] - matrice_transpusa[2][0] * matrice_transpusa[0][1]);
-		
+
 		matrice_adjuncta[2][0] = matrice_transpusa[0][1] * matrice_transpusa[1][2] - matrice_transpusa[1][1] * matrice_transpusa[0][2];
-		
+
 		matrice_adjuncta[2][1] = -(matrice_transpusa[0][0] * matrice_transpusa[1][2] - matrice_transpusa[1][0] * matrice_transpusa[0][2]);
-		
+
 		matrice_adjuncta[2][2] = matrice_transpusa[0][0] * matrice_transpusa[1][1] - matrice_transpusa[1][0] * matrice_transpusa[0][1];
 
-	
+
 	}
 
 
@@ -355,7 +378,7 @@ void decryptF(int matrice_decriptare[N][N], int matrice_inversa[N][N], int vecto
 	cout << "Matricea decriptata: " << endl;
 	for (int i = 0; i < (mesaj.length() / n); i++) {
 		for (int j = 0; j < n; j++) {
-			cout << matrice_finala[i][j]  << " ";
+			cout << matrice_finala[i][j] << " ";
 		}
 		cout << endl;
 	}
@@ -407,7 +430,7 @@ void main() {
 	cout << "-----------------------------INPUT--------------------------------- " << endl << endl;
 
 	citire(mesaj);
-	
+
 
 	cout << "Introduceti numarul de linii si coloane: ";
 	cin >> n;
@@ -445,5 +468,7 @@ void main() {
 	inversa(matrice_adjuncta, matrice_inversa, n, det);
 
 	//--------------------------------------------DECRIPTARE-----------------------------------------------------
-	decryptF(matrice_decriptare, matrice_inversa, vector, n, aux, decrypted, mesaj, matrice_rezultata,matrice_finala);
+	decryptF(matrice_decriptare, matrice_inversa, vector, n, aux, decrypted, mesaj, matrice_rezultata, matrice_finala);
+
+	cout << "Anything";
 }
